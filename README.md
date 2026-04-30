@@ -1,13 +1,27 @@
 # family-tree-planner
 
-## Algorithm
+## Algorithm-thinking
 find the difference of generation
 
 ?(check the parent of the older generation )
 
-let gendiff = person1gen - person2gen
 
-if ()
+let person2gen
+let person1gen
+let gendiff = person1gen - person2gen
+let parent = 1
+let sibling = 0
+let cousin = 0
+let child = -1
+
+
+if (gendiff = #){
+    let familychecker = family#
+}
+
+if (gendiff = 0)
+    if ()
+
 
 ## original
 Adam

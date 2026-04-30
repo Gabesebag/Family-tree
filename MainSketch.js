@@ -5,6 +5,10 @@ function setup() {
     let Cain = new Person("Cain", Adam, 3, 350, 150, "Cain (3)");
 }
 
+let Person = [];
+//let person1gen
+//let gendiff = person1gen - person2gen
+
 function draw () {
     background(220);
 
