@@ -1,13 +1,8 @@
 class Person {
-  constructor(name, ancestor, generation, x, y) {
+  constructor(name, ancestor = null) {
     this.name = name;
     this.ancestor = ancestor;
-    this.generation = generation;
-    this.null = null;
-    this.x = x;
-    this.y = y;
-    this.width = 150;
-    this.height = 50;
+    this.position = null
   }
   // displays the family tree as rectangles with names inside
   displayFamilyTree() {
