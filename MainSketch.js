@@ -9,7 +9,7 @@ function setup() {
     let Nimrod = new Person("Nimrod", Cain);
     let Lucas = new Person("Lucas", Cain);
     let alexzandar = new Person("Alexzandar", Abel);
-    // let Lucas = new Person("Lucas", Abel);
+    let Lucas = new Person("Lucas", Abel);
 }
 
 let Person = [];
@@ -22,6 +22,8 @@ function draw () {
     rect(50, 50, 150, 50);
     rect(200, 100, 150, 50);
     rect(350, 150, 150, 50);
+
+    print()
 
     Person.push(new Person("Adam", null));
     Person.push(new Person("Abel", Adam));
