@@ -8,13 +8,13 @@ function familyConnecter (person1, person2) {
 
     
      if (gendiff = 2){
-        familychecker = "Person 1 is the grandparent of Person 2"
+        println("Person 1 is the grandchild of Person 2")
 }
     if (gendiff = -1){
-        familychecker = "Person 1 is the child of Person 2"
+        println("Person 1 is the child of Person 2")
 }
 
-if (gendiff = 0){
-   // if ()
-    }
+    if (gendiff = 0){
+        println("Person 1 and Person 2 are siblings")
+}
 }

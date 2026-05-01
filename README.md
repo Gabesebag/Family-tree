@@ -9,43 +9,46 @@ Check the difference of generation
 
 ### Possible code to implament
 
-let person2
-let person1
-let person2gen = going back generations until the common ancestor and recording the total number of people it had to go back from
-let person1gen = going back generations until the common ancestor and recording the total number of people it had to go back from 
-let grandparent = 2
-let parent = 1
-let sibling = 0
-let cousin = 0
-let child = -1
-
-let removed = the amount of generations away you are from a cousin
-let generation = the generation of a person
-
-if (gendiff = #){
-    let familychecker = family#
-}
+let person2  
+let person1  
+let person2gen = going back generations until the common ancestor and recording the total number of people it had to go back from  
+let person1gen = going back generations until the common ancestor and recording the total number of people it had to go back from   
+let grandparent = 2  
+let parent = 1  
+let sibling = 0  
+let cousin = 0  
+let child = -1  
+  
+let removed = the amount of generations away you are from a cousin  
+let generation = the generation of a person  
+  
+if (gendiff = #){  
+    let familychecker = family#  
+}  
 
 #### basic family members
 let gendiff = person1gen - person2gen
+  
+if (gendiff = )  
+  
+if (gendiff = 0){  
+    if (person1 && person2 have the same parent)  
+    person1 is the sibling of person2   
+} else {  
+    person1 is the cousin of person2  
+}  
 
-if (gendiff = )
+if (person1gen === person1gen){  
+    pick a different person for person2  
+} else {  
+    display their names and relation to each other  
+}  
 
-if (gendiff = 0){
-    if (person1 && person2 have the same parent)
-    person1 is the sibling of person2 
-} else {
-    person1 is the cousin of person2 
-}
-
-if (person1gen === person1gen){
-    pick a different person for person2
-} else {
-    display their names and relation to each other
-}
 #### Complicared family members
-
-
+  
+if (){  
+      
+}  
 
 
 
@@ -57,9 +60,10 @@ Cain
 Abel
 
 ## 2nd gen
-nimrod
-alexzandar
-peter
-lucas
+nimrod  
+alexzandar  
+peter  
+lucas  
 
 ## 3rd gen
+Seth

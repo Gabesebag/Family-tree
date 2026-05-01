@@ -1,9 +1,4 @@
 let familychecker
 
-//ancestor
-
-//1st generation
-
-//2nd generation
-
-//3rd generation
+let VertSpacing = 50;
+let HorzSpacing = 150;
