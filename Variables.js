@@ -1,3 +1,6 @@
+let Household;
+let PersonA;
+
 let familychecker
 
 let VertSpacing = 50;

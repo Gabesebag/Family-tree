@@ -2,6 +2,11 @@
 
 ## Algorithm-thinking
 
+- Generation
+- How to relate between two members
+- How great an ancestor is
+- how many times a cousin is removed
+
 ### Order of finding out the relation between family members
 Check the difference of generation
     - if they're in the same generation, check who their parent is
@@ -13,7 +18,7 @@ let person2
 let person1  
 let person2gen = going back generations until the common ancestor and recording the total number of people it had to go back from  
 let person1gen = going back generations until the common ancestor and recording the total number of people it had to go back from   
-let grandparent = 2  
+let grandchild = 2  
 let parent = 1  
 let sibling = 0  
 let cousin = 0  
@@ -66,18 +71,18 @@ if (){
   - Finding out how many times a cousin of a younger generation is removed (generations after Person 2) when paired with a cousin
 
 
-## original
+## original - gen 1
 Adam
 
-## 1st gen
+## 2nd gen
 Cain
 Abel
 
-## 2nd gen
+## 3rd gen
 nimrod  
 alexzandar  
 peter  
 lucas  
 
-## 3rd gen
+## 4th gen
 Seth

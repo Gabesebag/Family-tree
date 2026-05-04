@@ -1,32 +1,35 @@
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight);
 
-    let Adam = new Person("Adam", null);
+	let Adam = new Person("Adam", null);
 
-    let Abel = new Person("Abel", Adam);
-    let Cain = new Person("Cain", Adam);
+	let Abel = new Person("Abel", Adam);
+	let Cain = new Person("Cain", Adam);
 
-    let Nimrod = new Person("Nimrod", Cain);
-    let Lucas = new Person("Lucas", Cain);
-    let alexzandar = new Person("Alexzandar", Abel);
-    let Lucas = new Person("Lucas", Abel);
-}
+	let Nimrod = new Person("Nimrod", Cain);
+	let Peter = new Person("Peter", Cain);
+	let alexzandar = new Person("Alexzandar", Abel);
+	let Lucas = new Person("Lucas", Abel);
 
-let Person = [];
-//let person1gen
-//let gendiff = person1gen - person2gen
+	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas];
+	PersonA = random(Household);
+	PersonB = random(Household);
 
-function draw () {
-    background(220);
+	//Print the generation of PersonA
+	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
 
-    rect(50, 50, 150, 50);
-    rect(200, 100, 150, 50);
-    rect(350, 150, 150, 50);
+	//Print the greatness number of PersonA compared to PersonB
+	print(`${PersonA.name} has a greatness number of ${Greatnessnumber(PersonA, PersonB)} compared to ${PersonB.name}`);
 
-    print()
-
-    Person.push(new Person("Adam", null));
-    Person.push(new Person("Abel", Adam));
-    Person.push(new Person("Cain", Adam));
-    Person.push(new Person("Seth", Adam));
+	//Print the relation between PersonA and PersonB
+	let gendiff = GenerationDifference(PersonA, PersonB);
+	let relationship;
+	if (gendiff === 2) {
+		relationship = "grandchild";
+	} else if (gendiff === -1) {
+		relationship = "child";
+	} else if (gendiff === 0) {
+		relationship = "sibling";
+	}
+	print(`${PersonA.name} is the ${relationship} of ${PersonB.name}`);
 }
