@@ -33,20 +33,23 @@ function GenerationDifference(PersonA, PersonB) {
 
 
 function familyConnecter (person1, person2) {    
-  if (gendiff = 0){
-          print('grandparent')
-  }
-  if (gendiff = 0){
-          print('parent')
+  if (gendiff = -2){
+    print('grandparent')
   }
   if (gendiff = -1){
-      print('child')
-}
-if (gendiff = 0){
-    print('siblings')
-}
+    print('parent')
+  }
+  if (gendiff = 0){
+    print('sibling')
+  }
+  if (gendiff = 0){
+    print('cousin')
+  }
+  if (gendiff = 1){
+    print('child')
+  }
      if (gendiff = 2){
-        print('grandchild')
-}
+    print('grandchild')
+  }
 
 }

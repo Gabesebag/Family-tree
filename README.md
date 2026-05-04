@@ -18,11 +18,13 @@ let person2
 let person1  
 let person2gen = going back generations until the common ancestor and recording the total number of people it had to go back from  
 let person1gen = going back generations until the common ancestor and recording the total number of people it had to go back from   
-let grandchild = 2  
+
+let grandparent = 2
 let parent = 1  
 let sibling = 0  
 let cousin = 0  
 let child = -1  
+let grandchild = -2  
   
 let gendiff
 let removed = the amount of generations away you are from a cousin  

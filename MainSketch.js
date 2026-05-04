@@ -17,6 +17,7 @@ function setup() {
 
 	//Print the generation of PersonA
 	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
+	print(`${PersonB.name} belongs in generation ${Generation(PersonB)}`);
 
 	//Print the greatness number of PersonA compared to PersonB
 	print(`${PersonA.name} has a greatness number of ${Greatnessnumber(PersonA, PersonB)} compared to ${PersonB.name}`);
@@ -24,12 +25,16 @@ function setup() {
 	//Print the relation between PersonA and PersonB
 	let gendiff = GenerationDifference(PersonA, PersonB);
 	let relationship;
-	if (gendiff === 2) {
-		relationship = "grandchild";
+	if (gendiff === -2) {
+		relationship = "grandparent";
 	} else if (gendiff === -1) {
-		relationship = "child";
+		relationship = "parent";
 	} else if (gendiff === 0) {
 		relationship = "sibling";
+	} else if (gendiff === 1) {
+		relationship = "child";
+	} else if (gendiff === 2) {
+		relationship = "grandchild";
 	}
 	print(`${PersonA.name} is the ${relationship} of ${PersonB.name}`);
 }
