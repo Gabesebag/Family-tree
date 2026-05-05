@@ -11,23 +11,36 @@ function Generation(Person) {
   return generation + 1;
 }
 
-function Greatnessnumber(PersonA, PersonB) { //Needs to be checked over again, not sure if this is what I want or if I even need tis function
-  let greatness = 0;
+// check if PersonB is an ancestor of PersonA, and is 2 generations apart, then PersonB is the great grandparent of personA, 
+// if PersonB is an ancestor of PersonA, and is 1 generation apart, then PersonB is the grandparent of personA, if PersonB 
+// is an ancestor of PersonA, and is 0 generations apart, then PersonB is the parent of personA, if PersonB is an ancestor
+//  of PersonA, and is -1 generations apart, then PersonB is the sibling of personA, if PersonB is an ancestor of PersonA, 
+// and is -2 generations apart, then PersonB is the child of personA, if PersonB is an ancestor of PersonA, and is -3 
+// generations apart, then PersonB is the grandchild of personA
+function Greatnessnumber(PersonA, PersonB) {
+  let greatnesscounter  = 0
+  let great = 0;
   let current = PersonA;
 
   while (current !== null && current.ancestor !== PersonB) {
     current = current.ancestor;
-    greatness++;
+    great++;
   }
 
-  return current === null ? -1 : greatness + 1; //Returns -1 if PersonB is not an ancestor of PersonA
+  //After counting a difference of 2 generations between 2 members, everytime great goes up by 1, the greatnesscounter goes up by 1
+  if (great >= 2) {
+    greatnesscounter++;
+  }
+
+  return current === null ? -1 : great + 1; //Returns -1 if PersonB is not an ancestor of PersonA
 }
 
 //Check the generation difference between PersonA and PersonB, if the difference is 2, then PersonA is the grandchild of PersonB, if the difference is -1, then PersonA is the child of PersonB, if the difference is 0, then PersonA and PersonB are siblings
 function GenerationDifference(PersonA, PersonB) {
   let genA = Generation(PersonA);
   let genB = Generation(PersonB);
-  return gendiff = genA - genB;
+  return gendiff = Math.abs(genA - genB);
+  return absgendiff = Math.abs(genA - genB);
 }
 
 
@@ -48,8 +61,13 @@ function familyConnecter (person1, person2) {
   if (gendiff = 1){
     print('child')
   }
-     if (gendiff = 2){
+  if (gendiff = 2){
     print('grandchild')
   }
-
+  if (absgendiff >= 3){
+    print("great grandparent")
+  }
+  if (absgendiff >= 3){
+    print("great grandchild")
+  }
 }

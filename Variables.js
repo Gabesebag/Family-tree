@@ -1,5 +1,6 @@
 let Household;
 let PersonA;
+let PersonB;
 
 let familychecker
 

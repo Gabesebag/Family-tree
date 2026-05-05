@@ -11,7 +11,16 @@ function setup() {
 	let alexzandar = new Person("Alexzandar", Abel);
 	let Lucas = new Person("Lucas", Abel);
 
-	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas];
+	let Seth = new Person("Seth", Nimrod);
+	let Enoch = new Person("Enoch", Nimrod);
+	let Tobias = new Person("Toobias", Peter);
+	let Asher = new Person("Asher", Peter);
+	let Moses = new Person("Moses", alexzandar);
+	let Silas = new Person("Silas", alexzandar);
+	let Isaac = new Person("Isaac", Lucas);
+	let Gideon = new Person("Gideon", Lucas);
+
+	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas, Seth, Enoch, Tobias, Asher, Moses, Silas, Isaac, Gideon];
 	PersonA = random(Household);
 	PersonB = random(Household);
 
@@ -25,6 +34,7 @@ function setup() {
 	//Print the relation between PersonA and PersonB
 	let gendiff = GenerationDifference(PersonA, PersonB);
 	let relationship;
+	let greatnesscounter;
 	if (gendiff === -2) {
 		relationship = "grandparent";
 	} else if (gendiff === -1) {
@@ -36,5 +46,7 @@ function setup() {
 	} else if (gendiff === 2) {
 		relationship = "grandchild";
 	}
-	print(`${PersonA.name} is the ${relationship} of ${PersonB.name}`);
+	// Newer print
+	print(`${PersonA.name} is the ${relationship} x${greatnesscounter} of ${PersonB.name}`);
+	//print(`${PersonA.name} is the ${relationship} of ${PersonB.name}`);
 }
