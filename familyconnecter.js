@@ -39,7 +39,7 @@ function Greatnessnumber(PersonA, PersonB) {
 function GenerationDifference(PersonA, PersonB) {
   let genA = Generation(PersonA);
   let genB = Generation(PersonB);
-  return gendiff = Math.abs(genA - genB);
+  return gendiff = (genA - genB);
   return absgendiff = Math.abs(genA - genB);
 }
 

@@ -24,6 +24,9 @@ function setup() {
 	PersonA = random(Household);
 	PersonB = random(Household);
 
+	// PersonB  = Adam;
+	// PersonA = Gideon;
+
 	//Print the generation of PersonA
 	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
 	print(`${PersonB.name} belongs in generation ${Generation(PersonB)}`);
@@ -33,20 +36,29 @@ function setup() {
 
 	//Print the relation between PersonA and PersonB
 	let gendiff = GenerationDifference(PersonA, PersonB);
+	let absGendiff = Math.abs(gendiff);
 	let relationship;
-	let greatnesscounter;
-	if (gendiff === -2) {
-		relationship = "grandparent";
-	} else if (gendiff === -1) {
-		relationship = "parent";
-	} else if (gendiff === 0) {
-		relationship = "sibling";
-	} else if (gendiff === 1) {
-		relationship = "child";
-	} else if (gendiff === 2) {
-		relationship = "grandchild";
+	let generation;
+	let tier = generation === 2 ? "1st": generation === 2 ? "2nd" : generation === 3 ? "3rd" : generation === 4 ? "4th" : `${generation}th`;
+	
+	if (absGendiff === 0) {
+		if (PersonA.ancestor === PersonB.ancestor) {
+			relationship = "sibling";
+		} else {
+			relationship = "cousin";
+		}
+	} else if (absGendiff === 1) {
+		relationship = gendiff > 0 ? "child" : "parent";
+	} else if (absGendiff === 2) {
+		relationship = gendiff > 0 ? "grandchild" : "grandparent";
+	} else if (absGendiff === 3) {
+		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
+	} else {
+		let greats = 'great-'.repeat(absGendiff - 2);
+		relationship = gendiff > 0 ? greats + "grandparents" : greats + "grandchild";
+	} if (relationship === "cousin") {
+		print(`${PersonA.name} is the ${tier} ${relationship} of ${PersonB.name} ${absGendiff}x removed`);
+	} if (relationship === "sibling" || relationship === "child" || relationship === "parent"|| relationship === "grandchild" || relationship === "grandparent" || relationship === "great-grandchild" || relationship === "great-grandparent") {
+	print(`${PersonA.name} is the ${relationship} x${absGendiff} of ${PersonB.name}`);
 	}
-	// Newer print
-	print(`${PersonA.name} is the ${relationship} x${greatnesscounter} of ${PersonB.name}`);
-	//print(`${PersonA.name} is the ${relationship} of ${PersonB.name}`);
 }
