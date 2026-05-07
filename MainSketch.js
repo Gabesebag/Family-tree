@@ -21,11 +21,11 @@ function setup() {
 	let Gideon = new Person("Gideon", Lucas);
 
 	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas, Seth, Enoch, Tobias, Asher, Moses, Silas, Isaac, Gideon];
-	PersonA = random(Household);
-	PersonB = random(Household);
+	// PersonA = random(Household);
+	// PersonB = random(Household);
 
-	// PersonB  = Adam;
-	// PersonA = Gideon;
+	PersonA  = Peter;
+	PersonB = Gideon;
 
 	//Print the generation of PersonA
 	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
@@ -49,16 +49,19 @@ function setup() {
 		}
 	} else if (absGendiff === 1) {
 		relationship = gendiff > 0 ? "child" : "parent";
-	} else if (absGendiff === 2) {
+		
+	} else if (absGendiff === 2 && PersonA.ancestor === PersonB) {
 		relationship = gendiff > 0 ? "grandchild" : "grandparent";
-	} else if (absGendiff === 3) {
+	} 
+	
+	else if (absGendiff === 3 && PersonB.ancestor === PersonA) {
 		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
 	} else {
 		let greats = 'great-'.repeat(absGendiff - 2);
 		relationship = gendiff > 0 ? greats + "grandparents" : greats + "grandchild";
 	} if (relationship === "cousin") {
 		print(`${PersonA.name} is the ${tier} ${relationship} of ${PersonB.name} ${absGendiff}x removed`);
-	} if (relationship === "sibling" || relationship === "child" || relationship === "parent"|| relationship === "grandchild" || relationship === "grandparent" || relationship === "great-grandchild" || relationship === "great-grandparent") {
-	print(`${PersonA.name} is the ${relationship} x${absGendiff} of ${PersonB.name}`);
+	} else {
+		print(`${PersonA.name} is the ${relationship} x${absGendiff} of ${PersonB.name}`);
 	}
 }
