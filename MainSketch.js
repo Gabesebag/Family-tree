@@ -39,7 +39,8 @@ function setup() {
 	let absGendiff = Math.abs(gendiff);
 	let relationship;
 	let generation;
-	let tier = generation === 2 ? "1st": generation === 2 ? "2nd" : generation === 3 ? "3rd" : generation === 4 ? "4th" : `${generation}th`;
+	let tiercounter = generation
+	let tier;
 	
 	if (absGendiff === 0) {
 		if (PersonA.ancestor === PersonB.ancestor) {
@@ -47,19 +48,27 @@ function setup() {
 		} else {
 			relationship = "cousin";
 		}
-	} else if (absGendiff === 1) {
+	} else if (absGendiff === 1 && findAncestors(PersonA, PersonB).includes(PersonB)) {
 		relationship = gendiff > 0 ? "child" : "parent";
-		
-	} else if (absGendiff === 2 && PersonA.ancestor === PersonB) {
+	} else if (absGendiff === 1) {
+		tier = "1st";
+		relationship = "cousin";
+	} else if (absGendiff === 2 && findAncestors(PersonA, PersonB).includes(PersonB)) {
 		relationship = gendiff > 0 ? "grandchild" : "grandparent";
-	} 
-	
-	else if (absGendiff === 3 && PersonB.ancestor === PersonA) {
+	} else if (absGendiff === 2) {
+		tier = "2nd";
+		relationship = "cousin";
+	} else if (absGendiff === 3 && findAncestors(PersonA, PersonB).includes(PersonB)) {
 		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
+	} else if (absGendiff === 3) {
+		tier = "3rd";
+		relationship = "cousin";
 	} else {
 		let greats = 'great-'.repeat(absGendiff - 2);
 		relationship = gendiff > 0 ? greats + "grandparents" : greats + "grandchild";
-	} if (relationship === "cousin") {
+	}
+	
+	if (relationship === "cousin") {
 		print(`${PersonA.name} is the ${tier} ${relationship} of ${PersonB.name} ${absGendiff}x removed`);
 	} else {
 		print(`${PersonA.name} is the ${relationship} x${absGendiff} of ${PersonB.name}`);

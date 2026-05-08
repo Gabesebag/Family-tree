@@ -43,6 +43,20 @@ function GenerationDifference(PersonA, PersonB) {
   return absgendiff = Math.abs(genA - genB);
 }
 
+//find PersonA's ancestors and check if PersonB is one of them, if so, return the list of ancestors from PersonA to PersonB, if not, Person A and B are cousins that are a #'s generations apart, and return the list of ancestors from PersonA to the common ancestor, and from PersonB to the common ancestor
+function findAncestors(PersonA, PersonB) {
+  let ancestors = [];
+  let current = PersonA;
+
+  while (current !== null) {
+    ancestors.push(current);
+    if (current === PersonB) {
+      return ancestors;
+    }
+    current = current.ancestor;
+  }
+  return ancestors;
+}
 
 
 function familyConnecter (person1, person2) {    
