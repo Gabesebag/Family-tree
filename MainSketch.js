@@ -20,7 +20,6 @@ function setup() {
 	let Isaac = new Person("Isaac", Lucas);
 	let Gideon = new Person("Gideon", Lucas);
 
-	// 5th Generation - Children of 4th generation
 	let Eli = new Person("Eli", Seth);
 	let Hannah = new Person("Hannah", Seth);
 	let Benjamin = new Person("Benjamin", Enoch);
@@ -41,8 +40,8 @@ function setup() {
 	// PersonA  = Peter;
 	// PersonB = Gideon;
 
-	// PersonA = Gideon;
-	// PersonB = Lucas;
+	// PersonA = Lucas;
+	// PersonB = Gideon;
 
 	//Print the generation of PersonA
 	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
@@ -80,7 +79,17 @@ function setup() {
 	} else if (absGendiff === 3) {
 		tier = "3rd";
 		relationship = "cousin";
-	} else {
+	} else if (absGendiff === 4 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
+		relationship = gendiff > 0 ? "great-great-grandchild" : "great-great-grandparent";
+	} else if (absGendiff === 4) {
+		tier = "4th";
+		relationship = "cousin";
+	} else if (absGendiff === 4 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
+		relationship = gendiff > 0 ? "great-great-grandchild" : "great-great-grandparent";
+	} else if (absGendiff === 4) {
+		tier = "4th";
+		relationship = "cousin";
+	} else if (absGendiff >= 5 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
 		let greats = 'great-'.repeat(absGendiff - 2);
 		relationship = gendiff > 0 ? greats + "grandparents" : greats + "grandchild";
 	}
