@@ -20,12 +20,29 @@ function setup() {
 	let Isaac = new Person("Isaac", Lucas);
 	let Gideon = new Person("Gideon", Lucas);
 
-	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas, Seth, Enoch, Tobias, Asher, Moses, Silas, Isaac, Gideon];
-	// PersonA = random(Household);
-	// PersonB = random(Household);
+	// 5th Generation - Children of 4th generation
+	let Eli = new Person("Eli", Seth);
+	let Hannah = new Person("Hannah", Seth);
+	let Benjamin = new Person("Benjamin", Enoch);
+	let Rachel = new Person("Rachel", Enoch);
+	let Joshua = new Person("Joshua", Tobias);
+	let Ruth = new Person("Ruth", Tobias);
+	let Samuel = new Person("Samuel", Asher);
+	let Naomi = new Person("Naomi", Asher);
+	let David = new Person("David", Moses);
+	let Abigail = new Person("Abigail", Moses);
+	let Jonathan = new Person("Jonathan", Silas);
+	let Miriam = new Person("Miriam", Isaac);
 
-	PersonA  = Peter;
-	PersonB = Gideon;
+	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas, Seth, Enoch, Tobias, Asher, Moses, Silas, Isaac, Gideon, Eli, Hannah, Benjamin, Rachel, Joshua, Ruth, Samuel, Naomi, David, Abigail, Jonathan, Miriam];
+	PersonA = random(Household);
+	PersonB = random(Household);
+
+	// PersonA  = Peter;
+	// PersonB = Gideon;
+
+	// PersonA = Gideon;
+	// PersonB = Lucas;
 
 	//Print the generation of PersonA
 	print(`${PersonA.name} belongs in generation ${Generation(PersonA)}`);
@@ -48,17 +65,17 @@ function setup() {
 		} else {
 			relationship = "cousin";
 		}
-	} else if (absGendiff === 1 && findAncestors(PersonA, PersonB).includes(PersonB)) {
+	} if (absGendiff === 1 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
 		relationship = gendiff > 0 ? "child" : "parent";
 	} else if (absGendiff === 1) {
 		tier = "1st";
 		relationship = "cousin";
-	} else if (absGendiff === 2 && findAncestors(PersonA, PersonB).includes(PersonB)) {
+	} else if (absGendiff === 2 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
 		relationship = gendiff > 0 ? "grandchild" : "grandparent";
 	} else if (absGendiff === 2) {
 		tier = "2nd";
 		relationship = "cousin";
-	} else if (absGendiff === 3 && findAncestors(PersonA, PersonB).includes(PersonB)) {
+	} else if (absGendiff === 3 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
 		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
 	} else if (absGendiff === 3) {
 		tier = "3rd";

@@ -58,6 +58,13 @@ function findAncestors(PersonA, PersonB) {
   return ancestors;
 }
 
+//check if person A is younger than person b, if so, return true, if not, return false
+function isYounger(PersonA, PersonB) {
+  let genA = Generation(PersonA);
+  let genB = Generation(PersonB);
+  return genA > genB;
+}
+
 
 function familyConnecter (person1, person2) {    
   if (gendiff = -2){
