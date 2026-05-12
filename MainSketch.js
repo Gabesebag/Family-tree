@@ -1,4 +1,5 @@
 function setup() {
+	textSize(20);
 	createCanvas(windowWidth, windowHeight);
 
 	let Adam = new Person("Adam", null);

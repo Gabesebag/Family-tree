@@ -5,5 +5,5 @@ let PersonB;
 
 let familychecker
 
-let VertSpacing = 50;
+let VertSpacing = 85;
 let HorzSpacing = 150;
