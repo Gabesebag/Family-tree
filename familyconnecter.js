@@ -58,6 +58,24 @@ function findAncestors(PersonA, PersonB) {
   return ancestors;
 }
 
+function getfounder(members) {
+  for (let i = 0; i < members.length; i++) {
+    if (members[i].ancestor === null) {
+      return members[i];
+    }
+  }
+}
+    
+function getchildren(parent, members) {
+  let children = [];
+  for (let i = 0; i < members.length; i++) {
+    if (members[i].ancestor === parent) {
+      children.push(members[i]);
+    }
+  }
+  return children;
+}
+
 //check if person A is younger than person b, if so, return true, if not, return false
 function isYounger(PersonA, PersonB) {
   let genA = Generation(PersonA);

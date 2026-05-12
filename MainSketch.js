@@ -34,6 +34,7 @@ function setup() {
 	let Miriam = new Person("Miriam", Isaac);
 
 	Household = [Adam, Abel, Cain, Nimrod, Peter, alexzandar, Lucas, Seth, Enoch, Tobias, Asher, Moses, Silas, Isaac, Gideon, Eli, Hannah, Benjamin, Rachel, Joshua, Ruth, Samuel, Naomi, David, Abigail, Jonathan, Miriam];
+	familytree(Household);
 	PersonA = random(Household);
 	PersonB = random(Household);
 
@@ -80,16 +81,16 @@ function setup() {
 		tier = "3rd";
 		relationship = "cousin";
 	} else if (absGendiff === 4 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
-		relationship = gendiff > 0 ? "great-great-grandchild" : "great-great-grandparent";
+		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
 	} else if (absGendiff === 4) {
 		tier = "4th";
 		relationship = "cousin";
 	} else if (absGendiff === 4 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
-		relationship = gendiff > 0 ? "great-great-grandchild" : "great-great-grandparent";
+		relationship = gendiff > 0 ? "great-grandchild" : "great-grandparent";
 	} else if (absGendiff === 4) {
 		tier = "4th";
 		relationship = "cousin";
-	} else if (absGendiff >= 5 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
+	} else if (absGendiff >= 4 && (findAncestors(PersonA, PersonB).includes(PersonB) || findAncestors(PersonB, PersonA).includes(PersonA))) {
 		let greats = 'great-'.repeat(absGendiff - 2);
 		relationship = gendiff > 0 ? greats + "grandparents" : greats + "grandchild";
 	}
