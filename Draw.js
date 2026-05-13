@@ -37,6 +37,22 @@ function sketchfamilytree(founder, members, generation, x, y, segmentStart = 0, 
 	}
 }
 
+// Draw an arrow from start point in the direction of the vector
+function drawArrow(start, direction, color) {
+	push();
+	stroke(color);
+	fill(color);
+	let end = p5.Vector.add(start, direction);
+	line(start.x, start.y, end.x, end.y);
+	// draw arrowhead
+	let angle = direction.heading();
+	let arrowSize = 10;
+	translate(end.x, end.y);
+	rotate(angle);
+	triangle(0, 0, -arrowSize, -arrowSize/2, -arrowSize, arrowSize/2);
+	pop();
+}
+
 // Draw indicator of the relation between 2 people
 function Indicator(thisperson, thatperson) {
 	// Check if both people have a drawn position

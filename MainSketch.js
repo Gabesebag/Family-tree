@@ -38,6 +38,7 @@ function setup() {
 	familytree(Household);
 	PersonA = random(Household);
 	PersonB = random(Household);
+	Indicator(PersonA, PersonB);
 
 	// PersonA  = Peter;
 	// PersonB = Gideon;
