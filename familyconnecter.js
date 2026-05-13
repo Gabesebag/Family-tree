@@ -11,12 +11,7 @@ function Generation(Person) {
   return generation + 1;
 }
 
-// check if PersonB is an ancestor of PersonA, and is 2 generations apart, then PersonB is the great grandparent of personA, 
-// if PersonB is an ancestor of PersonA, and is 1 generation apart, then PersonB is the grandparent of personA, if PersonB 
-// is an ancestor of PersonA, and is 0 generations apart, then PersonB is the parent of personA, if PersonB is an ancestor
-//  of PersonA, and is -1 generations apart, then PersonB is the sibling of personA, if PersonB is an ancestor of PersonA, 
-// and is -2 generations apart, then PersonB is the child of personA, if PersonB is an ancestor of PersonA, and is -3 
-// generations apart, then PersonB is the grandchild of personA
+// check if PersonB is an ancestor of PersonA, and is 2 generations apart or more, if so, then PersonB is the great grandparent #'x of personA, 
 function Greatnessnumber(PersonA, PersonB) {
   let greatnesscounter  = 0
   let great = 0;
@@ -27,7 +22,7 @@ function Greatnessnumber(PersonA, PersonB) {
     great++;
   }
 
-  //After counting a difference of 2 generations between 2 members, everytime great goes up by 1, the greatnesscounter goes up by 1
+  //After counting a difference of 2 generations or more between 2 members, everytime great goes up by 1, the greatnesscounter goes up by 1
   if (great >= 2) {
     greatnesscounter++;
   }
@@ -39,8 +34,7 @@ function Greatnessnumber(PersonA, PersonB) {
 function GenerationDifference(PersonA, PersonB) {
   let genA = Generation(PersonA);
   let genB = Generation(PersonB);
-  return gendiff = (genA - genB);
-  return absgendiff = Math.abs(genA - genB);
+  return gendiff = (genA - genB), absgendiff = Math.abs(genA - genB);
 }
 
 //find PersonA's ancestors and check if PersonB is one of them, if so, return the list of ancestors from PersonA to PersonB, if not, Person A and B are cousins that are a #'s generations apart, and return the list of ancestors from PersonA to the common ancestor, and from PersonB to the common ancestor
